@@ -19,6 +19,7 @@ export function SignUp() {
 
     async function handleSubmit(user) {
         await signup(user)
+        navigate('/profile')
     }
 
     return (
@@ -26,7 +27,7 @@ export function SignUp() {
             <h2>Sign Up 😊</h2>
             <form className="sign-up-form" >
                 <div className="form-section">
-                    <label htmlFor="username">User Name: </label>
+                    <label htmlFor="username">UserName: </label>
                     <input
                         type="text"
                         name="username"
