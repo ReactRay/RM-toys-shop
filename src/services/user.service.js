@@ -46,7 +46,13 @@ async function login(userCred) {
   const users = await storageService.query(STORAGE_KEY_USER_DB)
   const user = users.find((user) => user.username === userCred.username)
   if (user) {
-    return saveLocalUser(user)
+    if (user.password === userCred.password) {
+      return saveLocalUser(user) // Return user if credentials match
+    } else {
+      throw new Error('Invalid password')
+    }
+  } else {
+    throw new Error('User not found')
   }
 }
 

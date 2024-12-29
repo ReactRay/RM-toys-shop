@@ -1,6 +1,8 @@
 @use 'multi';
 @use 'vars' as *;
 @use 'signUp';
+@use 'usermsg';
+@use 'profile';
 
 * {
   padding: 0;
@@ -9,7 +11,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: cursive, sans-serif;
   color: #333;
 }
 

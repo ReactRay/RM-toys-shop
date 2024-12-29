@@ -1,25 +1,51 @@
 
 import { signup } from "../store/user/user.actions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { showErrorMsg } from "../services/event-bus.service";
+import { ImgUploader } from "../cmps/ImgUploader";
+import { useSelector } from "react-redux";
 
 export function SignUp() {
     const [user, setUser] = useState({});
 
     const navigate = useNavigate()
 
+    const myUser = useSelector(state => state.userModule.user || null)
+
+    useEffect(() => {
+        if (myUser) {
+            navigate('/profile')
+        }
+    }, [myUser])
+
 
     function handleChange(event) {
-        const { name, value } = event.target; // Destructure name and value from the input
+        const { name, value } = event.target;
         setUser((prevUser) => ({
             ...prevUser,
-            [name]: value, // Update the specific field in the state
+            [name]: value,
         }));
     }
+    function validateFields() {
+        const newErrors = {};
+        if (!user.username) newErrors.username = "Username is required.";
+        if (!user.password) newErrors.password = "Password is required.";
+        if (!user.name) newErrors.name = "Name is required.";
+        return Object.keys(newErrors).length === 0; // Return true if no errors
+    }
 
-    async function handleSubmit(user) {
-        await signup(user)
-        navigate('/profile')
+    async function handleSubmit() {
+        if (!validateFields()) {
+            showErrorMsg('something went wrong')
+            return;
+        }
+        await signup(user);
+        navigate("/profile");
+    }
+
+    function onUploaded(imgUrl) {
+        setUser(prevCredentials => ({ ...prevCredentials, imgUrl }))
     }
 
     return (
@@ -50,6 +76,8 @@ export function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <ImgUploader onUploaded={onUploaded} />
+
                 <div className="btn-box">
                     <button onClick={() => handleSubmit(user)} type="button">Sign Up</button>
                     <button onClick={() => navigate('/login')} type="button">Login Instead</button>
