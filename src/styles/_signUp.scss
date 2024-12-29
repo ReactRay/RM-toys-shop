@@ -1,0 +1,27 @@
+@use 'vars' as *;
+
+.sign-up-form {
+  padding: 1rem;
+  background-color: $nes;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  box-shadow: 4px 4px 20px $espresso;
+
+  .form-section {
+    padding: 0.5rem;
+  }
+  input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .btn-box {
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+  }
+}

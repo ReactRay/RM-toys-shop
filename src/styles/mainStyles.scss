@@ -1,7 +1,34 @@
 @use 'multi';
+@use 'vars' as *;
+@use 'signUp';
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+button {
+  padding: 6px 10px;
+  border: none;
+  font-weight: 500;
+  background-color: $moka;
+  color: $light;
+
+  &:hover {
+    background-color: $light;
+    color: $moka;
+  }
+}
+
+.container {
+  padding: 1rem;
+  border: 1px solid $espresso;
+  width: 90%;
+  margin: 1rem auto;
 }
