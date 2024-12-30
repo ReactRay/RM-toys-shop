@@ -3,7 +3,7 @@
 @use 'signUp';
 @use 'usermsg';
 @use 'profile';
-
+@use 'toys';
 * {
   padding: 0;
   margin: 0;
@@ -13,6 +13,7 @@
 body {
   font-family: cursive, sans-serif;
   color: #333;
+  background-color: #eee;
 }
 
 button {
@@ -29,9 +30,33 @@ button {
   }
 }
 
+a {
+  text-decoration: none;
+  background-color: $moka;
+  color: $light;
+  padding: 4px 8px;
+  margin: 0 0.5rem;
+
+  &:hover {
+    background-color: $light;
+    color: $moka;
+  }
+}
+
+ul,
+li {
+  list-style: none;
+}
+
 .container {
   padding: 1rem;
   border: 1px solid $espresso;
   width: 90%;
   margin: 1rem auto;
+}
+
+.btn-box {
+  padding: 5px;
+  display: flex;
+  gap: 10px;
 }

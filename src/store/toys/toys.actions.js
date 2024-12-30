@@ -11,11 +11,11 @@ import {
   SET_TOYS,
 } from './toys.reducer'
 
-export async function loadRobots() {
+export async function loadToys(filterBy) {
   try {
-    const filterBy = store.getState().toyModulee.filterBy
     const toys = await toyService.query(filterBy)
-    store.dispatch({ type: SET_TOYS, toys })
+    await store.dispatch({ type: SET_TOYS, toys })
+    console.log(toys, ' from action now')
   } catch (err) {
     console.log('Having issues with loading toys:', err)
     showErrorMsg('Having issues with loading toys:')
@@ -50,11 +50,11 @@ export async function saveToy(toyToSave) {
     const toy = await toyService.save(toyToSave)
     store.dispatch({ type, toy })
   } catch (err) {
-    console.log('Having issues saving robot:', err)
+    console.log('Having issues saving toy:', err)
     throw err
   }
 }
 
-export function setFilterBy(filterBy) {
+export function setFilterBy(filterBy = {}) {
   store.dispatch({ type: SET_FILTER, filterBy })
 }

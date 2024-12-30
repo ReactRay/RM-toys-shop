@@ -6,7 +6,7 @@ export const SET_FILTER = 'SET_FILTER'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 
 const initialState = {
-  toys: null,
+  toys: [],
   filterBy: {},
   isLoading: true,
 }
@@ -31,9 +31,7 @@ export function toysReducer(state = initialState, cmd) {
     case EDIT_TOY:
       return {
         ...state,
-        toys: state.robots.map((toy) =>
-          toy.id === cmd.toy.id ? cmd.toy : toy
-        ),
+        toys: state.toys?.map((toy) => (toy.id === cmd.toy.id ? cmd.toy : toy)),
       }
 
     case SET_FILTER:

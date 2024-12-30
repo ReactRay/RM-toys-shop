@@ -19,6 +19,33 @@ export const userService = {
 
 window.userService = userService
 
+makeAdminAccount()
+
+async function makeAdminAccount() {
+  const admin = {
+    username: 'admin',
+    name: 'mr.Admin',
+    password: '123',
+    imgUrl:
+      'https://res.cloudinary.com/danlxus36/image/upload/v1735487866/Ren_htahji.jpg',
+    isAdmin: true,
+  }
+
+  try {
+    const users = (await storageService.query(STORAGE_KEY_USER_DB)) || []
+
+    if (users.find((user) => user.isAdmin)) {
+      console.log('Admin account already exists.')
+      return
+    }
+
+    await storageService.post(STORAGE_KEY_USER_DB, admin)
+    console.log('Admin account created successfully.')
+  } catch (error) {
+    console.error('Error checking or creating admin account:', error)
+  }
+}
+
 function getUsers() {
   return storageService.query(STORAGE_KEY_USER_DB)
 }
@@ -89,6 +116,7 @@ function saveLocalUser(user) {
     id: user.id,
     name: user.name,
     imgUrl: user.imgUrl,
+    isAdmin: user.isAdmin ? true : false,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user

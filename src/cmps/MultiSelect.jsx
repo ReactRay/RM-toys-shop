@@ -1,23 +1,5 @@
-import { useState } from "react"
 
-
-const arr = ['1', '2', '3']
-
-export function MultiSelect() {
-
-    const [options, SetOptions] = useState(arr || [])
-    const [selected, SetSelected] = useState([])
-
-
-    function handleAdd(val) {
-        SetSelected((prev) => [...prev, val])
-        SetOptions((prev) => prev.filter(x => x !== val))
-    }
-
-    function handleDelete(val) {
-        SetOptions(prev => [...prev, val])
-        SetSelected(prev => prev.filter(x => x !== val))
-    }
+export function MultiSelect({ handleAdd, handleDelete, options, selected }) {
 
 
     return (

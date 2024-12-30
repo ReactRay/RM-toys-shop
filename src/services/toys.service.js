@@ -12,19 +12,19 @@ export const toyService = {
 
 const STORAGE_KEY = 'toys'
 
-async function query(filterBy) {
+async function query(filterBy = {}) {
   try {
     let toys = await storageService.query(STORAGE_KEY)
-    if (filterBy) {
-      let { minBatteryStatus, model = '', type = '' } = filterBy
-      minBatteryStatus = minBatteryStatus || 0
-      toys = toys.filter(
-        (toys) =>
-          toys.type.toLowerCase().includes(type.toLowerCase()) &&
-          toys.model.toLowerCase().includes(model.toLowerCase()) &&
-          toys.batteryStatus >= minBatteryStatus
-      )
+
+    console.log(filterBy, 'from service now')
+    if (filterBy.name) {
+      toys = toys.filter((toy) => toy.name.includes(filterBy.name))
     }
+
+    if (filterBy.price) {
+      toys = toys.filter((toy) => +toy.price >= filterBy.price)
+    }
+
     return toys
   } catch (error) {
     console.log('error:', error)
@@ -44,7 +44,6 @@ function save(toyToSave) {
   if (toyToSave.id) {
     return storageService.put(STORAGE_KEY, toyToSave)
   } else {
-    toyToSave.isOn = false
     return storageService.post(STORAGE_KEY, toyToSave)
   }
 }

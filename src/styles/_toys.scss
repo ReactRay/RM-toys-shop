@@ -1,0 +1,19 @@
+@use 'vars' as *;
+
+.toys-flex {
+  padding: 1rem;
+  background-color: $light;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.toy-preview {
+  height: 100%;
+  background-color: $nes;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 5px;
+}
