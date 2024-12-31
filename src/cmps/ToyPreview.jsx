@@ -13,9 +13,10 @@ export function ToyPreview({ toy }) {
 
     return (
         <div className="toy-preview box-shadow">
-            <img src={toy.imgUrl} width='200px' height='200px' alt="toy" />
 
-            {toy && <> <h3>toy name:{toy.name}</h3>
+
+            {toy && <> <img src={toy.imgUrl} width='200px' height='200px' alt="toy" />
+                <h3>toy name:{toy.name}</h3>
 
                 <h3>price:{toy.price}$</h3>
                 <div className="labels">
