@@ -3,16 +3,24 @@
 .toys-flex {
   padding: 1rem;
   background-color: $nes;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
 
   box-shadow: 4px 4px 20px $espresso;
 }
 
 .toy-preview {
-  background-color: $light;
+  // background-color: $light;
+  background: rgb(160, 185, 177);
+  background: linear-gradient(
+    50deg,
+    rgb(155, 187, 149) 20%,
+    rgb(132, 163, 178) 82%
+  );
+
   color: $espresso;
   display: flex;
   flex-direction: column;
@@ -26,7 +34,7 @@
   .labels {
     display: flex;
     flex-wrap: wrap;
-
+    font-size: 0.7rem;
     padding: 0.5rem;
     gap: 1rem;
 

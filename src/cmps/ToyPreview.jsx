@@ -29,7 +29,7 @@ export function ToyPreview({ toy }) {
                 <div className="btn-box" >
                     {user.isAdmin && <button onClick={() => navigate(`/edit/${toy.id}`)}>edit</button>}
                     <button onClick={() => navigate(`/details/${toy.id}`)}>details</button>
-                    {user.isAdmin && <button onClick={() => handleDelete(toy.id)}>delete</button>}
+                    {user.isAdmin && <button className="danger" onClick={() => handleDelete(toy.id)}>delete</button>}
                 </div></>}
         </div>
     )
