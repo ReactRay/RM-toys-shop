@@ -22,9 +22,8 @@ export function ToysList() {
 
 
     return (
-        <div className="container">
-            <h1>toys down here</h1>
-            <div className="toys-flex">
+        <div >
+            <div className="toys-flex box-shadow">
                 {toys.map((toy, idx) => {
                     return (<ToyPreview key={toy?.id + idx} toy={toy} />)
 

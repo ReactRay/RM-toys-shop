@@ -12,11 +12,12 @@ export function ToyPreview({ toy }) {
     }
 
     return (
-        <div className="toy-preview">
+        <div className="toy-preview box-shadow">
+            <img src={toy.imgUrl} width='200px' height='200px' alt="toy" />
+
             {toy && <> <h3>toy name:{toy.name}</h3>
 
                 <h3>price:{toy.price}$</h3>
-                <img src={toy.imgUrl} width='200px' height='200px' alt="toy" />
                 <div className="labels">
                     {toy?.labels?.map((toy, idx) => {
                         return <li key={idx + toy}>

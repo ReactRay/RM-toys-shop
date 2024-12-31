@@ -9,6 +9,13 @@
   align-items: center;
   margin-top: 1rem;
   box-shadow: 4px 4px 20px $espresso;
+  border-radius: 5px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
 
   .form-section {
     padding: 0.5rem;
@@ -24,4 +31,9 @@
     display: flex;
     gap: 10px;
   }
+}
+
+.upload-preview {
+  display: flex;
+  flex-direction: column;
 }

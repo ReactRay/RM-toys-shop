@@ -52,9 +52,10 @@ export function AddToy() {
     }
     return (
         <div className="container">
-            <h2>lets add a toy</h2>
 
-            <form >
+
+            <form className="form-add box-shadow">
+                <h2>lets add a toy</h2>
                 <div>
                     <label >toy name:</label>
                     <input type="text"

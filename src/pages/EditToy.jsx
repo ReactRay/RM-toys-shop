@@ -46,11 +46,11 @@ export function EditToy() {
     }
 
     return (
-        <div className="container">
+        <div className="container form-add box-shadow">
             <h1>We edit toys here!</h1>
             <h2>{toyId ? `Editing Toy: ${toyToEdit.name}` : 'Create a New Toy'}</h2>
 
-            <form onSubmit={handleSaveToy}>
+            <form onSubmit={handleSaveToy} >
                 <div>
                     <label htmlFor="name">Toy Name:</label>
                     <input

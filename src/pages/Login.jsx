@@ -12,10 +12,7 @@ export function Login() {
 
     const myUser = useSelector(state => state.userModule.user || null)
 
-    useEffect(() => {
-        if (myUser !== null)
-            navigate('/profile')
-    }, [myUser])
+
 
     function handleChange(event) {
         const { name, value } = event.target; // Destructure name and value from the input
@@ -35,7 +32,7 @@ export function Login() {
 
         try {
             await login(user);
-            navigate("/profile");
+            navigate("/toys");
             showSuccessMsg("Logged in successfully");
         } catch (err) {
             showErrorMsg(err.message || "Invalid credentials");
@@ -45,7 +42,7 @@ export function Login() {
     return (
         <div className="container">
             <h1>Login here 🥳</h1>
-            <form className="sign-up-form" onSubmit={handleSubmit}>
+            <form className="sign-up-form box-shadow" onSubmit={handleSubmit}>
                 <div className="form-section">
                     <label htmlFor="username">UserName: </label>
                     <input

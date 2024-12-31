@@ -32,7 +32,7 @@ export function ChatForm({ toy }) {
     }
 
     return (
-        <div className="container">
+        <div className="flex-item">
             <h2>{msg}</h2>
             <form onSubmit={handleSubmit}>
                 <div>

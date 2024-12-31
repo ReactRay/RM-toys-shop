@@ -17,12 +17,12 @@ export function ChatDisplay({ toy }) {
     }
 
     return (
-        <div className="container">
+        <div className="flex-item">
             <ul>
                 {toy.msgs && toy.msgs.map((msg) => (
-                    <li key={msg.id}>
+                    <li key={msg.id} >
                         {msg.by.name}: {msg.txt}
-                        {user.id === msg.by.id && <button onClick={() => { handleDelete(msg.id) }}>delete your messege</button>}
+                        {user.id === msg.by.id && <button className="delete" onClick={() => { handleDelete(msg.id) }}>X</button>}
                     </li>
                 ))}
             </ul>

@@ -12,8 +12,8 @@ export function Filter({ onFilter }) {
 
 
     return (
-        <div className="container">
-            <h2>Filter Options</h2>
+        <div className='filter-container box-shadow' >
+            <h3>Filter Options for now 😊</h3>
             <form >
                 <div>
                     <label htmlFor="name">Name:</label>

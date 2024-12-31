@@ -24,22 +24,25 @@ export function Details() {
     }
 
     return <div className="container">
-        <div>
-            <h2>toy: {toy.name}</h2>
-            <h2>price: {toy.price}$</h2>
-            <img src={toy.imgUrl} width='200px' height='200px' />
-            <ul>
-                {toy.labels?.map((label, idx) => {
-                    return (
-                        <li key={label + idx}>
-                            {label}
-                        </li>
-                    )
-                })}
-            </ul>
-            <div style={{ marginTop: '1rem' }}>
-                <Link to={'/toys'}>back</Link>
+        <div className="details box-shadow">
+            <div className="flex-item">
+                <h2>toy: {toy.name}</h2>
+                <h2>price: {toy.price}$</h2>
+                <img src={toy.imgUrl} width='200px' height='200px' />
+                <ul>
+                    {toy.labels?.map((label, idx) => {
+                        return (
+                            <li key={label + idx}>
+                                {label}
+                            </li>
+                        )
+                    })}
+                    <div style={{ marginTop: '1rem' }}>
+                        <Link to={'/toys'}>back</Link>
+                    </div>
+                </ul>
             </div>
+
             <div>
                 <ChatForm toy={toy} />
                 <ChatDisplay toy={toy} />

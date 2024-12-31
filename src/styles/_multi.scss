@@ -1,25 +1,45 @@
-.multi {
-  background-color: #fafafa;
-  padding: 10px;
-  margin: 1rem auto;
+@use 'vars' as *;
+
+.form-add {
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  background-color: $nes;
+  input {
+    padding: 4px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+  }
+}
+.multi-container {
+  background-color: $nes;
+  border-radius: 5px;
+  padding: 1rem 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.multi {
+  display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  box-shadow: 4px 4px 24px #fff;
-  border: 1px #333 solid;
+  padding: 10px;
+  background-color: $moka;
+  border-radius: 5px;
 
   .multi-el {
-    background-color: #333;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    box-shadow: 4px 4px 15px #333;
-    transition: all 2s ease-in-out; // Ensure "all" includes width
-    flex: none;
+    background-color: $nes;
+    font-weight: 600;
+    color: $espresso;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
 
     &:hover {
-      background-color: #fafafa;
-      color: #333;
+      background-color: $espresso;
+      color: $nes;
     }
   }
 }

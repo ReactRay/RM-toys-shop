@@ -6,6 +6,7 @@ import { setFilterBy } from "../store/toys/toys.actions"
 import { debounce } from "../services/util.service"
 import { useReducer, useRef } from "react"
 import { useSelector } from "react-redux"
+import { Profile } from "./Profile"
 export function ToysIndex() {
     const onSetFilterByDebounce = useRef(debounce(onFilter, 1000)).current
 
@@ -20,15 +21,13 @@ export function ToysIndex() {
 
     return (
         <div className="container">
-            <h1>Toys for everyone</h1>
+            <Profile />
+
 
             <Filter onFilter={onSetFilterByDebounce} />
 
             <ToysList />
-            <div className="container">
-                {user.isAdmin ? <Link to={'/add'}>add toy</Link> : ''}
-                <Link to={'/profile'}>back to profile</Link>
-            </div>
+
 
         </div>
     )

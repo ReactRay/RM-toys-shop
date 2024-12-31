@@ -13,11 +13,7 @@ export function SignUp() {
 
     const myUser = useSelector(state => state.userModule.user || null)
 
-    useEffect(() => {
-        if (myUser) {
-            navigate('/profile')
-        }
-    }, [myUser])
+
 
 
     function handleChange(event) {
@@ -41,7 +37,7 @@ export function SignUp() {
             return;
         }
         await signup(user);
-        navigate("/profile");
+        navigate("/toys");
     }
 
     function onUploaded(imgUrl) {
@@ -51,7 +47,7 @@ export function SignUp() {
     return (
         <div className="container">
             <h2>Sign Up 😊</h2>
-            <form className="sign-up-form" >
+            <form className="sign-up-form box-shadow" >
                 <div className="form-section">
                     <label htmlFor="username">UserName: </label>
                     <input

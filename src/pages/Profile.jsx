@@ -19,27 +19,32 @@ export function Profile() {
 
     async function onLogout() {
         try {
-            await logout()
-            showSuccessMsg(`Bye now`)
             navigate('/login')
+            setTimeout(() => {
+                logout()
+                showSuccessMsg('logged out')
+            }, 1000)
+
+
         } catch (err) {
             showErrorMsg('Cannot logout', err)
         }
     }
 
     return (
-        <div className="container">
-            <div className="profile-container">
+        <div >
+            <div className="profile-container box-shadow">
                 <div> <h1>Home </h1>
                     <h1>welcome {user?.name}</h1>
                     <button onClick={onLogout}>Log out</button>
 
+                    {user.isAdmin ? <button onClick={() => navigate('/add')}>add toy</button> : ''}
+
                 </div>
 
                 <img src={user?.imgUrl} />
-
             </div>
-            <Link to={'/toys'} >Toys</Link>
+
 
         </div>
     )
