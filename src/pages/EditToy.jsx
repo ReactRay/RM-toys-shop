@@ -33,6 +33,7 @@ export function EditToy() {
         e.preventDefault();
         const toyToSave = {
             id: toyToEdit.id || null, // If creating a new toy, `id` can be null
+            imgUrl: toyToEdit.imgUrl,
             name: toyToEdit.name,
             price: toyToEdit.price,
             labels: toyToEdit.labels,

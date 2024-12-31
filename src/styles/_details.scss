@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  width: 50%;
+
   margin: 0 auto;
   background-color: $nes;
 
@@ -19,6 +19,10 @@
     padding: 1rem;
     background-color: $light;
     margin: 1rem;
+    transition: all 1s;
+    &:hover {
+      transform: scale(1.03);
+    }
     ul {
       display: flex;
       flex-direction: column;
