@@ -38,7 +38,7 @@ export function Profile() {
     return (
         <div >
             <div className="profile-container box-shadow">
-                <div> <h1>Home </h1>
+                <div>
                     <h1>welcome {user?.name}</h1>
                     <button className="danger" onClick={onLogout}>Log out</button>
 

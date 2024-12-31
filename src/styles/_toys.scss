@@ -20,7 +20,7 @@
     rgb(155, 187, 149) 20%,
     rgb(132, 163, 178) 82%
   );
-
+  width: 25%;
   color: $espresso;
   display: flex;
   flex-direction: column;
@@ -49,6 +49,7 @@
   }
 
   img {
+    width: 100%;
     border-radius: 5px;
   }
 }
