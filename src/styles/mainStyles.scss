@@ -15,7 +15,12 @@
 body {
   font-family: cursive, sans-serif;
   color: $espresso;
-  background-color: $moka;
+  background: rgb(169, 185, 160);
+  background: linear-gradient(
+    90deg,
+    rgba(169, 185, 160, 1) 31%,
+    rgba(149, 187, 187, 1) 80%
+  );
 }
 
 button {
@@ -71,7 +76,7 @@ li {
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    // box-shadow: 5px 5px 20px $nes;
+    box-shadow: 5px 5px 20px $nes;
     color: #333;
   }
 }

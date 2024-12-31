@@ -46,7 +46,7 @@ export function SignUp() {
 
     return (
         <div className="container">
-            <h2>Sign Up 😊</h2>
+            <h2>Sign Up 😊  or use admin account ,user:admin pass:123</h2>
             <form className="sign-up-form box-shadow" >
                 <div className="form-section">
                     <label htmlFor="username">UserName: </label>
