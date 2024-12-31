@@ -17,12 +17,14 @@ async function query(filterBy = {}) {
     let toys = await storageService.query(STORAGE_KEY)
 
     console.log(filterBy, 'from service now')
+
     if (filterBy.name) {
-      toys = toys.filter((toy) => toy.name.includes(filterBy.name))
+      const nameRegex = new RegExp(filterBy.name, 'i')
+      toys = toys.filter((toy) => nameRegex.test(toy.name))
     }
 
     if (filterBy.price) {
-      toys = toys.filter((toy) => +toy.price >= filterBy.price)
+      toys = toys.filter((toy) => +toy.price <= filterBy.price)
     }
 
     return toys

@@ -27,7 +27,7 @@ async function makeAdminAccount() {
     name: 'mr.Admin',
     password: '123',
     imgUrl:
-      'https://res.cloudinary.com/danlxus36/image/upload/v1735487866/Ren_htahji.jpg',
+      'https://res.cloudinary.com/danlxus36/image/upload/v1735619252/pexels-pixabay-163036_ucbhhc.jpg',
     isAdmin: true,
   }
 

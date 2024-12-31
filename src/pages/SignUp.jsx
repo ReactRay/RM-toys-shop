@@ -47,7 +47,7 @@ export function SignUp() {
     return (
         <div className="container">
             <h2>Sign Up 😊  or use admin account ,user:admin pass:123</h2>
-            <form className="sign-up-form box-shadow" >
+            <form className="sign-up-form " >
                 <div className="form-section">
                     <label htmlFor="username">UserName: </label>
                     <input
@@ -76,7 +76,7 @@ export function SignUp() {
 
                 <div className="btn-box">
                     <button onClick={() => handleSubmit(user)} type="button">Sign Up</button>
-                    <button onClick={() => navigate('/login')} type="button">Login Instead</button>
+                    <button className="danger" onClick={() => navigate('/login')} type="button">Login Instead</button>
                 </div>
             </form>
         </div >

@@ -12,7 +12,7 @@ export function ToysList() {
     useEffect(() => {
         console.log('from list', filterBy)
         onLoadToys(filterBy)
-    }, [filterBy])
+    }, [filterBy, toys])
 
     async function onLoadToys(filterBy = {}) {
         await loadToys(filterBy)
@@ -23,7 +23,7 @@ export function ToysList() {
 
     return (
         <div >
-            <div className="toys-flex box-shadow">
+            <div className="toys-flex">
                 {toys.map((toy, idx) => {
                     return (<ToyPreview key={toy?.id + idx} toy={toy} />)
 

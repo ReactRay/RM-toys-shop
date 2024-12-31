@@ -2,6 +2,97 @@ import { showErrorMsg } from '../../services/event-bus.service'
 import { toyService } from '../../services/toys.service'
 import { store } from '../store'
 
+const toys = [
+  {
+    name: 'Teddy Bear',
+    price: '25',
+    labels: ['Stuffed Toy', 'Indoor', 'Soft'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/12211/pexels-photo-12211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    name: 'Race Car',
+    price: '40',
+    labels: ['Battery Powered', 'Outdoor', 'Fast'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/272056/pexels-photo-272056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    name: 'Building Blocks',
+    price: '30',
+    labels: ['Educational', 'Indoor', 'Creative'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Doll House',
+    price: '50',
+    labels: ['Pretend Play', 'Indoor', 'Interactive'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/1522180/pexels-photo-1522180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  },
+  {
+    name: 'Puzzle',
+    price: '20',
+    labels: ['Brain Teaser', 'Indoor', 'Problem-Solving'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/776092/pexels-photo-776092.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Toy Train',
+    price: '45',
+    labels: ['Battery Powered', 'Indoor', 'Interactive'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/133639/pexels-photo-133639.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Action Figure',
+    price: '35',
+    labels: ['Collectible', 'Outdoor', 'Fun'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/189506/pexels-photo-189506.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Sandbox',
+    price: '60',
+    labels: ['Outdoor', 'Creative', 'Interactive'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/160773/sandbox-children-child-sand-160773.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Toy Kitchen',
+    price: '70',
+    labels: ['Pretend Play', 'Indoor', 'Interactive'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/1264919/pexels-photo-1264919.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Remote-Controlled Drone',
+    price: '100',
+    labels: ['Tech Toy', 'Outdoor', 'Advanced'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'Rubik’s Cube',
+    price: '15',
+    labels: ['Brain Teaser', 'Indoor', 'Classic'],
+    msgs: [],
+    imgUrl:
+      'https://images.pexels.com/photos/714917/pexels-photo-714917.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+]
+
 import {
   ADD_TOY,
   EDIT_TOY,
@@ -10,6 +101,11 @@ import {
   //   SET_IS_LOADING,
   SET_TOYS,
 } from './toys.reducer'
+
+export async function addRandomToy() {
+  const randomToy = toys[Math.floor(Math.random() * toys.length)] // Pick a random toy
+  await saveToy(randomToy)
+}
 
 export async function loadToys(filterBy) {
   try {

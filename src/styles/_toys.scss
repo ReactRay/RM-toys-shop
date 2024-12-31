@@ -5,25 +5,42 @@
   background-color: $nes;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+
   border-radius: 5px;
+
+  box-shadow: 4px 4px 20px $espresso;
 }
 
 .toy-preview {
-  height: 100%;
   background-color: $light;
   color: $espresso;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  transform: scale(0.95);
+
+  padding: 0.5rem;
   border-radius: 5px;
 
+  .labels {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0.5rem;
+    gap: 1rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0.3rem 1rem;
+      background-color: $nes;
+      border-radius: 5px;
+    }
+  }
+
   img {
-    width: 150px;
-    height: 150px;
     border-radius: 5px;
   }
 }
