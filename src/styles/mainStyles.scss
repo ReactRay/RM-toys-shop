@@ -37,7 +37,7 @@ button {
   font-weight: 600;
   margin-top: 1rem;
   cursor: pointer;
-  font-family: cursive;
+  font-family: 'Quicksand', serif;
 
   &:hover {
     background-color: $light;
@@ -52,7 +52,7 @@ a {
   padding: 4px 8px;
   margin: 0 0.5rem;
   cursor: pointer;
-  font-family: cursive;
+  font-family: 'Quicksand', serif;
 
   &:hover {
     background-color: $light;
