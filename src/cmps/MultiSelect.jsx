@@ -4,7 +4,7 @@ export function MultiSelect({ handleAdd, handleDelete, options, selected }) {
 
     const userStyle = useSelector(state => state.userModule.user.prefs)
     return (
-        <div className="multi-container " style={userStyle}>
+        <div className="multi-container box-shadow " style={userStyle}>
             <h3>select labels for the toy:</h3>
 
             <div className="multi box-shadow">
