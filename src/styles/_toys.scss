@@ -50,3 +50,12 @@
     border-radius: 5px;
   }
 }
+
+@media (max-width: 720px) {
+  .toys-flex {
+    flex-direction: column;
+  }
+  .toy-preview {
+    width: 100%;
+  }
+}

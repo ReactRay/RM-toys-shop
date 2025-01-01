@@ -43,3 +43,9 @@
 .delete {
   background-color: coral;
 }
+
+@media (max-width: 720px) {
+  .details {
+    flex-direction: column;
+  }
+}
