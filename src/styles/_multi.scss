@@ -21,6 +21,7 @@
 }
 .multi {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 10px;
   border-radius: 5px;

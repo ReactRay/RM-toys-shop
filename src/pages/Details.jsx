@@ -4,10 +4,14 @@ import { toyService } from "../services/toys.service";
 import { Link } from "react-router-dom";
 import { ChatForm } from "../cmps/ChatForm";
 import { ChatDisplay } from "../cmps/ChatDisplay";
+import { useSelector } from "react-redux";
+
 
 export function Details() {
     const { toyId } = useParams();
     const [toy, setToy] = useState({})
+    const userStyle = useSelector(state => state.userModule.user.prefs)
+
 
     useEffect(() => {
         onLoadToy(toyId)
@@ -24,8 +28,8 @@ export function Details() {
     }
 
     return <div className="container">
-        <div className="details box-shadow">
-            <div className="flex-item">
+        <div className="details box-shadow" style={userStyle}>
+            <div className="flex-item" >
                 <h2>toy: {toy.name}</h2>
                 <h2>price: {toy.price}$</h2>
                 <img src={toy.imgUrl} width='200px' height='200px' />

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { saveToy } from "../store/toys/toys.actions"
 import { ImgUploader } from "../cmps/ImgUploader"
 import { showSuccessMsg } from "../services/event-bus.service"
+import { useSelector } from "react-redux"
 
 const arr = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
     'Outdoor', 'Battery Powered']
@@ -12,6 +13,9 @@ export function AddToy() {
     const [toy, setToy] = useState({})
     const [options, SetOptions] = useState(arr || [])
     const [selected, SetSelected] = useState([])
+    const userStyle = useSelector(state => state.userModule.user.prefs)
+
+
 
     const navigate = useNavigate()
 
@@ -59,7 +63,7 @@ export function AddToy() {
         <div className="container">
 
 
-            <form className="form-add box-shadow">
+            <form className="form-add box-shadow" style={userStyle}>
                 <h2>lets add a toy</h2>
                 <div>
                     <label >toy name:</label>

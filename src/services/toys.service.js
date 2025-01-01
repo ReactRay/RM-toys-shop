@@ -31,6 +31,10 @@ async function query(filterBy = {}) {
       )
     }
 
+    if (filterBy.sortByPrice) {
+      toys = toys.sort((a, b) => +b.price - +a.price)
+    }
+
     return toys
   } catch (error) {
     console.log('error:', error)

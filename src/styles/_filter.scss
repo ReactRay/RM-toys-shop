@@ -4,6 +4,8 @@
   background-color: $nes;
   padding: 1rem;
   border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
 
   form {
     display: flex;
@@ -20,5 +22,6 @@
 .flex-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }

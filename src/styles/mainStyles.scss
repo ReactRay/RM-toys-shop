@@ -100,3 +100,20 @@ li {
     color: coral;
   }
 }
+
+.color-unit {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+}
+
+.color-flex {
+  width: 90%;
+  margin: 1rem auto;
+
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

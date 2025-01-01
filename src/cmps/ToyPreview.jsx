@@ -8,6 +8,7 @@ export function ToyPreview({ toy }) {
 
     const navigate = useNavigate()
     const user = useSelector(s => s.userModule.user)
+    const userStyle = useSelector(s => s.userModule.user.prefs)
 
     async function handleDelete(id) {
         await removeToy(id)
@@ -15,7 +16,7 @@ export function ToyPreview({ toy }) {
     }
 
     return (
-        <div className="toy-preview box-shadow">
+        <div className="toy-preview box-shadow" style={userStyle}>
 
 
             {toy && <> <img src={toy.imgUrl} width='200px' height='200px' alt="toy" />

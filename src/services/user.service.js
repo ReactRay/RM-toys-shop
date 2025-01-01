@@ -117,6 +117,7 @@ function saveLocalUser(user) {
     name: user.name,
     imgUrl: user.imgUrl,
     isAdmin: user.isAdmin ? true : false,
+    prefs: user.prefs,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user

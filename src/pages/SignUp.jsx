@@ -28,7 +28,7 @@ export function SignUp() {
         if (!user.username) newErrors.username = "Username is required.";
         if (!user.password) newErrors.password = "Password is required.";
         if (!user.name) newErrors.name = "Name is required.";
-        return Object.keys(newErrors).length === 0; // Return true if no errors
+        return Object.keys(newErrors).length === 0;
     }
 
     async function handleSubmit() {

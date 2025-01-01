@@ -1,18 +1,19 @@
 
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { logout } from "../store/user/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useNavigate } from "react-router"
 import { useEffect } from "react"
 import { addRandomToy, loadToys } from "../store/toys/toys.actions"
+import { Presets } from "../cmps/Presets"
 
 
 
 
-export function Profile() {
+export function Profile({ userStyle }) {
 
     const user = useSelector(state => state.userModule.user) || null
-    const toys = useSelector(state => state.toyModule.toys)
+
 
     const navigate = useNavigate()
 
@@ -48,7 +49,7 @@ export function Profile() {
 
     return (
         <div >
-            <div className="profile-container box-shadow">
+            <div className="profile-container box-shadow" style={userStyle}>
                 <div>
                     <h1>welcome {user?.name}</h1>
                     <button className="danger" onClick={onLogout}>Log out</button>
@@ -59,6 +60,10 @@ export function Profile() {
                 </div>
 
                 <img src={user?.imgUrl} />
+                <Presets />
+
+            </div>
+            <div>
             </div>
 
 

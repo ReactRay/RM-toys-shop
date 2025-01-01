@@ -6,6 +6,8 @@ import { ToyPreview } from "./ToyPreview"
 
 export function ToysList() {
 
+    const userStyle = useSelector(state => state.userModule.user.prefs)
+
     const filterBy = useSelector(state => state.toyModule.filterBy)
 
     const toys = useSelector(state => state.toyModule.toys) || []
@@ -22,7 +24,7 @@ export function ToysList() {
 
     return (
         <div >
-            <div className="toys-flex">
+            <div className="toys-flex" style={userStyle}>
                 {toys.map((toy, idx) => {
                     return (<ToyPreview key={toy?.id + idx} toy={toy} />)
 
