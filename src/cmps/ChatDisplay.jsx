@@ -17,7 +17,7 @@ export function ChatDisplay({ toy }) {
     }
 
     return (
-        <div className="flex-item">
+        <div className="flex-item" style={user.prefs}>
             <ul>
                 {toy.msgs && toy.msgs.map((msg) => (
                     <li key={msg.id} >

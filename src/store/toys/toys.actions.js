@@ -17,7 +17,7 @@ const toys = [
   {
     name: 'Teddy Bear',
     price: '25',
-    labels: ['On wheels'], // Changed to valid label from arr
+    labels: ['On wheels'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/12211/pexels-photo-12211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -25,7 +25,7 @@ const toys = [
   {
     name: 'Race Car',
     price: '40',
-    labels: ['Battery Powered', 'Outdoor'], // Changed to valid labels from arr
+    labels: ['Battery Powered', 'Outdoor'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/272056/pexels-photo-272056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -33,7 +33,7 @@ const toys = [
   {
     name: 'Building Blocks',
     price: '30',
-    labels: ['Puzzle'], // Changed to valid label from arr
+    labels: ['Puzzle'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -41,7 +41,7 @@ const toys = [
   {
     name: 'Doll House',
     price: '50',
-    labels: ['Doll'], // Changed to valid label from arr
+    labels: ['Doll'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/1522180/pexels-photo-1522180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -49,7 +49,7 @@ const toys = [
   {
     name: 'Puzzle',
     price: '20',
-    labels: ['Puzzle'], // Changed to valid label from arr
+    labels: ['Puzzle'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/776092/pexels-photo-776092.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -57,7 +57,7 @@ const toys = [
   {
     name: 'Toy Train',
     price: '45',
-    labels: ['Battery Powered', 'On wheels'], // Changed to valid labels from arr
+    labels: ['Battery Powered', 'On wheels'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/133639/pexels-photo-133639.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -65,7 +65,7 @@ const toys = [
   {
     name: 'Action Figure',
     price: '35',
-    labels: ['Outdoor'], // Changed to valid label from arr
+    labels: ['Outdoor'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/189506/pexels-photo-189506.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -73,7 +73,7 @@ const toys = [
   {
     name: 'Sandbox',
     price: '60',
-    labels: ['Outdoor', 'Box game'], // Changed to valid label from arr
+    labels: ['Outdoor', 'Box game'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/160773/sandbox-children-child-sand-160773.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -81,7 +81,7 @@ const toys = [
   {
     name: 'Toy Kitchen',
     price: '70',
-    labels: ['Box game'], // Changed to valid label from arr
+    labels: ['Box game'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/1264919/pexels-photo-1264919.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -89,7 +89,7 @@ const toys = [
   {
     name: 'Remote-Controlled Drone',
     price: '100',
-    labels: ['Battery Powered', 'Outdoor'], // Changed to valid labels from arr
+    labels: ['Battery Powered', 'Outdoor'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -114,7 +114,7 @@ import {
 } from './toys.reducer'
 
 export async function addRandomToy() {
-  const randomToy = toys[Math.floor(Math.random() * toys.length)] // Pick a random toy
+  const randomToy = toys[Math.floor(Math.random() * toys.length)]
   await saveToy(randomToy)
 }
 

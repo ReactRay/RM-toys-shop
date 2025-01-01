@@ -32,9 +32,9 @@ export function ChatForm({ toy }) {
     }
 
     return (
-        <div className="flex-item">
+        <div className="flex-item" style={user.prefs}>
             <h2>{msg}</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <div>
                     <label htmlFor="">comment: </label>
                     <input type="text" value={msg} onChange={(e) => setMsg(e.target.value)} />

@@ -29,7 +29,7 @@ export function Details() {
 
     return <div className="container">
         <div className="details box-shadow" style={userStyle}>
-            <div className="flex-item" >
+            <div className="flex-item" style={userStyle}>
                 <h2>toy: {toy.name}</h2>
                 <h2>price: {toy.price}$</h2>
                 <img src={toy.imgUrl} width='200px' height='200px' />

@@ -42,6 +42,11 @@ export function Presets() {
         updateUser(newUser)
     }
 
+    function handleReset() {
+        const newUser = { ...user, prefs: null }
+        updateUser(newUser)
+    }
+
 
     return (
         <div>
@@ -53,6 +58,7 @@ export function Presets() {
                         <div className="color-unit" style={color} key={idx} onClick={() => handleClick(idx)}></div>
                     )
                 })}
+                <button onClick={handleReset}>reset</button>
             </div>
         </div>
     )
