@@ -12,19 +12,34 @@
   }
 }
 .multi-container {
-  background-color: $nes;
+  // background-color: $nes;
   border-radius: 5px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
 }
+
+.multi-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background-color: #fff;
+  z-index: 0;
+}
+
 .multi {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 10px;
   border-radius: 5px;
+  position: relative;
+  z-index: 1;
 
   .multi-el {
     background-color: $nes;
