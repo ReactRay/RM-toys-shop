@@ -1,5 +1,5 @@
 
-import { Navigate, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 import { removeToy } from "../store/toys/toys.actions"
 import { useSelector } from "react-redux"
 import { showSuccessMsg } from "../services/event-bus.service"

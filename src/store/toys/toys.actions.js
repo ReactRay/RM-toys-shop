@@ -2,17 +2,6 @@ import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import { toyService } from '../../services/toys.service'
 import { store } from '../store'
 
-const arr = [
-  'On wheels',
-  'Box game',
-  'Art',
-  'Baby',
-  'Doll',
-  'Puzzle',
-  'Outdoor',
-  'Battery Powered',
-]
-
 const toys = [
   {
     name: 'Teddy Bear',

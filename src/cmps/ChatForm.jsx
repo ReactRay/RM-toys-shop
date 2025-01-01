@@ -9,7 +9,6 @@ export function ChatForm({ toy }) {
 
 
     const [msg, setMsg] = useState('')
-    const toys = useSelector(state => state.toyModule.toys)
 
     const user = useSelector(state => state.userModule.user)
 
