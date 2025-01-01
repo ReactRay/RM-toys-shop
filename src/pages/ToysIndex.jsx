@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 import { Profile } from "./Profile"
 export function ToysIndex() {
     const onSetFilterByDebounce = useRef(debounce(onFilter, 1000)).current
-
+    const toys = useSelector(state => state.toyModule.toys)
 
 
 
@@ -27,7 +27,7 @@ export function ToysIndex() {
 
             <Filter onFilter={onSetFilterByDebounce} />
 
-            <ToysList />
+            <ToysList toys={toys} />
 
 
         </div>

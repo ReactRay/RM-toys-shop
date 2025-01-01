@@ -10,9 +10,8 @@ export function ToysList() {
 
     const toys = useSelector(state => state.toyModule.toys) || []
     useEffect(() => {
-        console.log('from list', filterBy)
         onLoadToys(filterBy)
-    }, [filterBy, toys])
+    }, [filterBy])
 
     async function onLoadToys(filterBy = {}) {
         await loadToys(filterBy)

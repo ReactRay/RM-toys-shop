@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { toyService } from "../services/toys.service";
 import { saveToy } from "../store/toys/toys.actions";
+import { showSuccessMsg } from "../services/event-bus.service";
 
 export function EditToy() {
     const [toyToEdit, setToyToEdit] = useState({ name: '', price: '' });
@@ -41,6 +42,7 @@ export function EditToy() {
         try {
             await saveToy(toyToSave);
             navigate('/toys'); // Navigate back to the toys list
+            showSuccessMsg('toy edited !')
         } catch (error) {
             console.error('Error saving toy:', error);
         }

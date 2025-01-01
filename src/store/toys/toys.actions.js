@@ -1,12 +1,23 @@
-import { showErrorMsg } from '../../services/event-bus.service'
+import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import { toyService } from '../../services/toys.service'
 import { store } from '../store'
+
+const arr = [
+  'On wheels',
+  'Box game',
+  'Art',
+  'Baby',
+  'Doll',
+  'Puzzle',
+  'Outdoor',
+  'Battery Powered',
+]
 
 const toys = [
   {
     name: 'Teddy Bear',
     price: '25',
-    labels: ['Stuffed Toy', 'Indoor', 'Soft'],
+    labels: ['On wheels'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/12211/pexels-photo-12211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -14,7 +25,7 @@ const toys = [
   {
     name: 'Race Car',
     price: '40',
-    labels: ['Battery Powered', 'Outdoor', 'Fast'],
+    labels: ['Battery Powered', 'Outdoor'], // Changed to valid labels from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/272056/pexels-photo-272056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -22,7 +33,7 @@ const toys = [
   {
     name: 'Building Blocks',
     price: '30',
-    labels: ['Educational', 'Indoor', 'Creative'],
+    labels: ['Puzzle'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -30,7 +41,7 @@ const toys = [
   {
     name: 'Doll House',
     price: '50',
-    labels: ['Pretend Play', 'Indoor', 'Interactive'],
+    labels: ['Doll'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/1522180/pexels-photo-1522180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -38,7 +49,7 @@ const toys = [
   {
     name: 'Puzzle',
     price: '20',
-    labels: ['Brain Teaser', 'Indoor', 'Problem-Solving'],
+    labels: ['Puzzle'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/776092/pexels-photo-776092.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -46,7 +57,7 @@ const toys = [
   {
     name: 'Toy Train',
     price: '45',
-    labels: ['Battery Powered', 'Indoor', 'Interactive'],
+    labels: ['Battery Powered', 'On wheels'], // Changed to valid labels from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/133639/pexels-photo-133639.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -54,7 +65,7 @@ const toys = [
   {
     name: 'Action Figure',
     price: '35',
-    labels: ['Collectible', 'Outdoor', 'Fun'],
+    labels: ['Outdoor'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/189506/pexels-photo-189506.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -62,7 +73,7 @@ const toys = [
   {
     name: 'Sandbox',
     price: '60',
-    labels: ['Outdoor', 'Creative', 'Interactive'],
+    labels: ['Outdoor', 'Box game'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/160773/sandbox-children-child-sand-160773.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -70,7 +81,7 @@ const toys = [
   {
     name: 'Toy Kitchen',
     price: '70',
-    labels: ['Pretend Play', 'Indoor', 'Interactive'],
+    labels: ['Box game'], // Changed to valid label from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/1264919/pexels-photo-1264919.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -78,7 +89,7 @@ const toys = [
   {
     name: 'Remote-Controlled Drone',
     price: '100',
-    labels: ['Tech Toy', 'Outdoor', 'Advanced'],
+    labels: ['Battery Powered', 'Outdoor'], // Changed to valid labels from arr
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -86,7 +97,7 @@ const toys = [
   {
     name: 'Rubik’s Cube',
     price: '15',
-    labels: ['Brain Teaser', 'Indoor', 'Classic'],
+    labels: ['Puzzle'],
     msgs: [],
     imgUrl:
       'https://images.pexels.com/photos/714917/pexels-photo-714917.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -111,9 +122,8 @@ export async function loadToys(filterBy) {
   try {
     const toys = await toyService.query(filterBy)
     await store.dispatch({ type: SET_TOYS, toys })
-    console.log(toys, ' from action now')
+    showSuccessMsg('toys fetched')
   } catch (err) {
-    console.log('Having issues with loading toys:', err)
     showErrorMsg('Having issues with loading toys:')
     throw err
   }
@@ -153,4 +163,5 @@ export async function saveToy(toyToSave) {
 
 export function setFilterBy(filterBy = {}) {
   store.dispatch({ type: SET_FILTER, filterBy })
+  console.log(filterBy, 'from the filter function')
 }

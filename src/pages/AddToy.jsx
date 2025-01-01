@@ -3,6 +3,7 @@ import { MultiSelect } from "../cmps/MultiSelect"
 import { useState } from "react"
 import { saveToy } from "../store/toys/toys.actions"
 import { ImgUploader } from "../cmps/ImgUploader"
+import { showSuccessMsg } from "../services/event-bus.service"
 
 const arr = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
     'Outdoor', 'Battery Powered']
@@ -17,6 +18,7 @@ export function AddToy() {
     function handleAdd(val) {
         SetSelected((prev) => [...prev, val])
         SetOptions((prev) => prev.filter(x => x !== val))
+
     }
 
     function handleDelete(val) {
@@ -36,6 +38,7 @@ export function AddToy() {
 
     function onUploaded(imgUrl) {
         setToy(prevCredentials => ({ ...prevCredentials, imgUrl }))
+        showSuccessMsg('image uploaded 😊!')
     }
 
 
@@ -48,6 +51,8 @@ export function AddToy() {
         await saveToy(toyToAdd)
 
         navigate('/toys')
+
+        showSuccessMsg('toy added ! ')
 
     }
     return (

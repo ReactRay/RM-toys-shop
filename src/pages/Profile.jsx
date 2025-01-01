@@ -1,10 +1,10 @@
 
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { logout } from "../store/user/user.actions"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useNavigate } from "react-router"
 import { useEffect } from "react"
-import { addRandomToy } from "../store/toys/toys.actions"
+import { addRandomToy, loadToys } from "../store/toys/toys.actions"
 
 
 
@@ -12,7 +12,7 @@ import { addRandomToy } from "../store/toys/toys.actions"
 export function Profile() {
 
     const user = useSelector(state => state.userModule.user) || null
-
+    const toys = useSelector(state => state.toyModule.toys)
 
     const navigate = useNavigate()
 
@@ -35,6 +35,17 @@ export function Profile() {
         }
     }
 
+    async function handleAddRandomToy() {
+        try {
+            await addRandomToy()
+            await loadToys()
+            showSuccessMsg('Random toy added')
+        } catch (err) {
+            showErrorMsg('Error adding random toy', err)
+        }
+    }
+
+
     return (
         <div >
             <div className="profile-container box-shadow">
@@ -43,7 +54,7 @@ export function Profile() {
                     <button className="danger" onClick={onLogout}>Log out</button>
 
                     {user.isAdmin ? <button onClick={() => navigate('/add')}>add toy</button> : ''}
-                    {user.isAdmin ? <button onClick={() => addRandomToy()}>add random toy</button> : ''}
+                    {user.isAdmin ? <button onClick={() => handleAddRandomToy()}>add random toy</button> : ''}
 
                 </div>
 
