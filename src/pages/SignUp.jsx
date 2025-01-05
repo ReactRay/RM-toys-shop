@@ -1,17 +1,16 @@
-
-import { signup } from "../store/user/user.actions";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
-import { showErrorMsg } from "../services/event-bus.service";
+import { useNavigate } from "react-router"
+import { login, signup } from "../store/user/user.actions";
+import { useState } from "react";
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { AppHeader } from "../cmps/AppHeader";
+import { Link } from "react-router-dom";
 import { ImgUploader } from "../cmps/ImgUploader";
-import { useSelector } from "react-redux";
+
 
 export function SignUp() {
-    const [user, setUser] = useState({});
 
+    const [user, setUser] = useState({})
     const navigate = useNavigate()
-
-    const myUser = useSelector(state => state.userModule.user || null)
 
 
 
@@ -23,21 +22,18 @@ export function SignUp() {
             [name]: value,
         }));
     }
-    function validateFields() {
-        const newErrors = {};
-        if (!user.username) newErrors.username = "Username is required.";
-        if (!user.password) newErrors.password = "Password is required.";
-        if (!user.name) newErrors.name = "Name is required.";
-        return Object.keys(newErrors).length === 0;
-    }
+    async function handleSubmit(e) {
+        e.preventDefault();
 
-    async function handleSubmit() {
-        if (!validateFields()) {
-            showErrorMsg('something went wrong')
-            return;
+        try {
+            signup(user)
+            showSuccessMsg('made a new account')
+            navigate('/index')
         }
-        await signup(user);
-        navigate("/toys");
+        catch (err) {
+            showErrorMsg('something went wrong')
+            console.log(err)
+        }
     }
 
     function onUploaded(imgUrl) {
@@ -45,40 +41,46 @@ export function SignUp() {
     }
 
     return (
-        <div className="container">
-            <h2>Sign Up 😊 or use admin account ,user: 'admin', password: '123'</h2>
-            <form className="sign-up-form " >
-                <div className="form-section">
-                    <label htmlFor="username">UserName: </label>
-                    <input
-                        type="text"
-                        name="username"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-section">
-                    <label htmlFor="password">Password: </label>
-                    <input
-                        type="password"
-                        name="password"
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-section">
-                    <label htmlFor="name">Your Name: </label>
-                    <input
-                        type="text"
-                        name="name"
-                        onChange={handleChange}
-                    />
-                </div>
-                <ImgUploader onUploaded={onUploaded} />
+        <>
+            <AppHeader />
+            <div className="container">
+                <h1>Sign Up Now!</h1>
+                <form className="login-form " onSubmit={handleSubmit}>
+                    <div className="form-section">
 
-                <div className="btn-box">
-                    <button onClick={() => handleSubmit(user)} type="button">Sign Up</button>
-                    <button className="danger" onClick={() => navigate('/login')} type="button">Login Instead</button>
+                        <input
+                            type="email"
+                            name="email"
+                            onChange={handleChange}
+                            placeholder="Email-adress"
+                        />
+                    </div>
+                    <div className="form-section">
+
+                        <input
+                            type="text"
+                            name="fullName"
+                            onChange={handleChange}
+                            placeholder="Full Name"
+                        />
+                    </div>
+                    <div className="form-section">
+
+                        <input
+                            type="password"
+                            name="password"
+                            onChange={handleChange}
+                            placeholder="Password"
+                        />
+                    </div>
+                    <button type="submit">Submit</button>
+                    <ImgUploader onUploaded={onUploaded} />
+
+                </form>
+                <div>
+                    <p>  have an account ? <Link to={'/login'}>Log In</Link > </p>
                 </div>
-            </form>
-        </div >
+            </div>
+        </>
     );
 }

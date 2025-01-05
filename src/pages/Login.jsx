@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router"
 import { login } from "../store/user/user.actions";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { AppHeader } from "../cmps/AppHeader";
+import { Link } from "react-router-dom";
 
 
 export function Login() {
@@ -10,29 +11,27 @@ export function Login() {
     const [user, setUser] = useState({})
     const navigate = useNavigate()
 
-    const myUser = useSelector(state => state.userModule.user || null)
 
 
 
     function handleChange(event) {
-        const { name, value } = event.target; // Destructure name and value from the input
+        const { name, value } = event.target;
         setUser((prevUser) => ({
             ...prevUser,
-            [name]: value, // Update the specific field in the state
+            [name]: value,
         }));
     }
     async function handleSubmit(e) {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
 
-        // Validate inputs
-        if (!user.username || !user.password) {
+        if (!user.email || !user.password) {
             showErrorMsg("Please fill in all fields");
             return;
         }
 
         try {
             await login(user);
-            navigate("/toys");
+            navigate("/index");
             showSuccessMsg("Logged in successfully");
         } catch (err) {
             showErrorMsg(err.message || "Invalid credentials");
@@ -40,30 +39,36 @@ export function Login() {
     }
 
     return (
-        <div className="container">
-            <h1>Login here 🥳 or use admin account ,user: 'admin', password: '123'</h1>
-            <form className="sign-up-form " onSubmit={handleSubmit}>
-                <div className="form-section">
-                    <label htmlFor="username">UserName: </label>
-                    <input
-                        type="text"
-                        name="username"
-                        onChange={handleChange}
-                    />
+        <>
+            <AppHeader />
+            <div className="container">
+                <h1>Log into you account !</h1>
+                <form className="login-form " onSubmit={handleSubmit}>
+                    <div className="form-section">
+
+                        <input
+                            type="text"
+                            name="email"
+                            onChange={handleChange}
+                            placeholder="Email-adress"
+                        />
+                    </div>
+                    <div className="form-section">
+
+                        <input
+                            type="password"
+                            name="password"
+                            onChange={handleChange}
+                            placeholder="Password"
+                        />
+                    </div>
+                    <button type="submit">Submit</button>
+
+                </form>
+                <div>
+                    <p> don't have an account ? <Link to={'/signup'}>sign up</Link> </p>
                 </div>
-                <div className="form-section">
-                    <label htmlFor="password">Password: </label>
-                    <input
-                        type="password"
-                        name="password"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit">Submit</button>
-                <button className="danger" type="button" onClick={() => navigate("/")}>
-                    Sign up instead
-                </button>
-            </form>
-        </div>
+            </div>
+        </>
     );
 }

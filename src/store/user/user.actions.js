@@ -1,8 +1,8 @@
 import { userService } from '../../services/user.service.js'
 
-import { REMOVE_USER, SET_USER, SET_USERS } from './user.reducer'
+import { REMOVE_USER, SET_USER, SET_USERS } from './user.reducer.js'
 
-import { store } from '../store'
+import { store } from '../store.js'
 
 export async function loadUsers() {
   try {

@@ -71,10 +71,10 @@ async function update(userToUpdate) {
 
 async function login(userCred) {
   const users = await storageService.query(STORAGE_KEY_USER_DB)
-  const user = users.find((user) => user.username === userCred.username)
+  const user = users.find((user) => user.email === userCred.email)
   if (user) {
     if (user.password === userCred.password) {
-      return saveLocalUser(user) // Return user if credentials match
+      return saveLocalUser(user)
     } else {
       throw new Error('Invalid password')
     }
@@ -114,10 +114,9 @@ async function spendBalance(amount) {
 function saveLocalUser(user) {
   user = {
     id: user.id,
-    name: user.name,
+    email: user.email,
+    fullName: user.fullName,
     imgUrl: user.imgUrl,
-    isAdmin: user.isAdmin ? true : false,
-    prefs: user.prefs,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user

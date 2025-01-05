@@ -1,15 +1,11 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './styles/mainStyles.scss'
-
-import { SignUp } from './pages/SignUp'
-import { Login } from './pages/Login'
 import { UserMsg } from './cmps/Usermsg'
-import { ToysIndex } from './pages/ToysIndex'
-import { AddToy } from './pages/AddToy'
-import { EditToy } from './pages/EditToy'
-import { Details } from './pages/Details'
-
+import { Login } from './pages/Login'
+import { HomePage } from './pages/HomePage'
+import { SignUp } from './pages/SignUp'
+import { MondayIndex } from './pages/MondayIndex'
 function App() {
 
   return (
@@ -17,15 +13,10 @@ function App() {
       <Router>
 
         <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/toys" element={<ToysIndex />} />
-          <Route path="/add" element={<AddToy />} />
-          <Route path="/edit/:toyId" element={<EditToy />} />
-          <Route path="/details/:toyId" element={<Details />} />
-
-
-
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/index" element={<MondayIndex />} />
 
         </Routes>
       </Router>

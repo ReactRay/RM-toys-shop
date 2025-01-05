@@ -1,12 +1,11 @@
-@use 'multi';
-@use 'vars' as *;
-@use 'signUp';
+@use 'homePage';
+@use 'Header';
+@use 'vars';
+@use 'footer';
+@use 'login';
+@use 'index';
 @use 'usermsg';
-@use 'profile';
-@use 'toys';
-@use 'filter';
-@use 'details';
-@use 'animation';
+
 * {
   padding: 0;
   margin: 0;
@@ -14,113 +13,5 @@
 }
 
 body {
-  font-family: 'Quicksand', serif;
-
-  color: $espresso;
-  background: rgb(160, 185, 177);
-  background: linear-gradient(
-    90deg,
-    rgb(160, 185, 177) 31%,
-    rgb(149, 158, 187) 80%
-  );
-  line-height: 1.3;
-  font-weight: 600;
-}
-
-button {
-  padding: 6px 10px;
-  border: none;
-  font-weight: 500;
-  background-color: $espresso;
-  color: $light;
-  margin-left: 1rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  cursor: pointer;
-  font-family: 'Quicksand', serif;
-
-  &:hover {
-    background-color: $light;
-    color: $espresso;
-  }
-}
-
-a {
-  text-decoration: none;
-  background-color: $espresso;
-  color: $light;
-  padding: 4px 8px;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  font-family: 'Quicksand', serif;
-
-  &:hover {
-    background-color: $light;
-    color: $espresso;
-  }
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-.container {
-  padding: 1rem;
-  width: 70%;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-}
-
-.btn-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  flex-wrap: wrap;
-}
-
-.box-shadow {
-  box-shadow: 4px 4px 20px $espresso;
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    box-shadow: 5px 5px 20px $nes;
-    transform: scale(1.01);
-    color: #333;
-  }
-}
-
-.danger {
-  background-color: coral;
-  color: $espresso;
-
-  &:hover {
-    background-color: $espresso;
-    color: coral;
-  }
-}
-
-.color-unit {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #fff;
-}
-
-.color-flex {
-  width: 90%;
-  margin: 1rem auto;
-
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 760px) {
-  .container {
-    width: 100%;
-  }
+  font-family: 'Quicksand';
 }
