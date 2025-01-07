@@ -1,5 +1,6 @@
 
 import { useSelector } from "react-redux";
+import BoardDetails from "./BoardDetails";
 
 
 export function MondayIndex() {
@@ -13,6 +14,10 @@ export function MondayIndex() {
             <h1>You Logged In !</h1>
             <h2>{user.fullName || 'no user'}</h2>
             <img src={user.imgUrl} width={'300px'} alt="" />
+
+            <div>
+                <BoardDetails />
+            </div>
         </div>
     )
 }

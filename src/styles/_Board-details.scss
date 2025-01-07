@@ -1,0 +1,94 @@
+/* Main Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr); /* Match grid structure */
+  justify-content: center;
+  background: white; /* Background for grid */
+  border-left: 0.3rem rgb(148, 182, 210) solid;
+}
+
+/* Grid Items */
+.grid-item {
+  border: 1px solid #d3d3d3; /* Border for individual cells */
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-pill {
+  background-color: #575757;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 20px;
+}
+
+.white {
+  color: #fff;
+}
+/* Header Styling */
+.grid-header {
+  background: #f7f8fa; /* Light background for headers */
+  font-weight: bold;
+}
+
+/* Row Colors */
+.grid-row:nth-child(odd) {
+  background: #f9f9f9; /* Alternating row color */
+}
+
+.grid-row:nth-child(even) {
+  background: white;
+}
+
+/* Sticky Task Title */
+.grid-item.taskTitle,
+.grid-item.side {
+  position: sticky;
+  z-index: 10;
+  left: 0;
+  border-right: 1px solid #d3d3d3;
+}
+
+.grid-item.taskTitle {
+  width: 100%;
+  text-align: start;
+}
+
+/* Labels and Progress Sections */
+.labels-grid,
+.progress-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr); /* Match grid structure */
+  border: 1px solid #eae6e6;
+  border-left: 0.3rem rgb(148, 182, 210) solid;
+}
+
+.labels-grid div,
+.progress-grid div {
+  border: 1px solid #e0dede; /* Ensure cell borders match */
+  padding: 0.7rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.group-list {
+  margin-top: 2em;
+}
+
+div {
+  font-family: 'Quicksand';
+  font-weight: 500;
+}
+
+.group:hover {
+  opacity: 50%;
+}

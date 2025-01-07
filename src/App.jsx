@@ -6,6 +6,7 @@ import { Login } from './pages/Login'
 import { HomePage } from './pages/HomePage'
 import { SignUp } from './pages/SignUp'
 import { MondayIndex } from './pages/MondayIndex'
+import BoardDetails from './pages/BoardDetails'
 function App() {
 
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/index" element={<MondayIndex />} />
+          <Route path="/boardDetails" element={<BoardDetails />} />
+
 
         </Routes>
       </Router>
