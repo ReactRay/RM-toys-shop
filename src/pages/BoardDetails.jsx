@@ -142,16 +142,17 @@ const BoardDetails = () => {
     const cmpOrder = [
 
         "taskTitle",
-        "status",
         "priority",
+        "status",
+
         "members",
         "date",
     ];
 
     const uid = () => Math.random().toString(36).slice(2);
-    const labels = ["item", "status", "priority", "members", "date"];
+    const labels = ["item", "priority", "status", "members", "date"];
 
-    const progress = [null, "status", "priority", null, "date"];
+    const progress = [null, "priority", "status", null, "date"];
 
     return (
         <section className="group-list">
