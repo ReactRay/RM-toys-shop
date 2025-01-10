@@ -1,7 +1,15 @@
 
+import { useEffect } from "react"
 import { AppHeader } from "../cmps/AppHeader"
 import { Footer } from "../cmps/Footer"
+import { boardService } from "../services/Board.service"
 export function HomePage() {
+
+
+    useEffect(() => {
+        boardService.makeFirstBoard()
+    }, [])
+
 
 
 

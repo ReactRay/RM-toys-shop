@@ -98,7 +98,6 @@ import {
   EDIT_TOY,
   REMOVE_TOY,
   SET_FILTER,
-  //   SET_IS_LOADING,
   SET_TOYS,
 } from './toys.reducer'
 

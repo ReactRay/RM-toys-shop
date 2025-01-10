@@ -19,8 +19,6 @@ export const userService = {
 
 window.userService = userService
 
-makeAdminAccount()
-
 async function makeAdminAccount() {
   const admin = {
     username: 'admin',
@@ -35,7 +33,6 @@ async function makeAdminAccount() {
     const users = (await storageService.query(STORAGE_KEY_USER_DB)) || []
 
     if (users.find((user) => user.isAdmin)) {
-      console.log('Admin account already exists.')
       return
     }
 

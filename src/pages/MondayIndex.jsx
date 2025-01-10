@@ -1,13 +1,29 @@
 
 import { useSelector } from "react-redux";
-import BoardDetails from "./BoardDetails";
 import { logout } from "../store/user/user.actions";
 import { useNavigate } from "react-router";
+import { BoardList } from "../cmps/BoardList";
+import { useEffect } from "react";
+import { loadBoards } from "../store/boards/boards.actions";
 
 export function MondayIndex() {
 
+
+
+
     const navigate = useNavigate()
     const user = useSelector(state => state.userModule.user)
+    const boards = useSelector(state => state.boardModule.boards)
+    useEffect(() => {
+        onLoadBoards()
+
+    }, [])
+
+
+    async function onLoadBoards() {
+        await loadBoards()
+
+    }
 
     function onLogout() {
         navigate('/')
@@ -25,10 +41,8 @@ export function MondayIndex() {
                 <img src={user?.imgUrl} width={'300px'} alt="" />
                 <button className="btn" onClick={onLogout}>Log out</button>
             </div>
+            <BoardList boards={boards} />
 
-            <div>
-                <BoardDetails />
-            </div>
         </div>
     )
 }

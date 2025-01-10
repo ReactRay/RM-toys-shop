@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { updateTask } from "../../store/boards/boards.actions"; // Make sure to import the updateTask action
 
-export function Status({ info }) {
+export function Status({ boardId, groupId, taskId, info }) {
     const [modal, setModal] = useState(false);
     const [currentStatus, setCurrentStatus] = useState(info);
 
@@ -17,7 +18,10 @@ export function Status({ info }) {
 
     // Function to handle the color change when a user clicks a color box
     const handleColorClick = (status) => {
-        setCurrentStatus(status);
+        // Update the status of the task in the store and backend
+        const updatedTask = { status };
+        updateTask(boardId, groupId, taskId, updatedTask);  // Update task status
+        setCurrentStatus(status);  // Update the status in the component
         setModal(false); // Close the modal after the color is selected
     };
 
@@ -57,7 +61,6 @@ export function Status({ info }) {
                             >
                                 DONE
                             </div>
-
                         </div>
                         <button className="btn" onClick={() => setModal(false)}>Close</button>
                     </div>

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { updateTask } from '../../store/boards/boards.actions';
 
-function Priority({ info, onTaskUpdate }) {
+function Priority(props) {
     const [modal, setModal] = useState(false);
-    const [currentPriority, setCurrentPriority] = useState(info);
+    const [currentPriority, setCurrentPriority] = useState(props.info);
+    const [isUpdating, setIsUpdating] = useState(false);  // Track updating status
 
-    // Function to set the background color based on priority
+    console.log(props)
+    // Helper function to determine background color based on priority
     function color(priority) {
         if (priority === 'HIGH') return '#fdab3d'; // orangeish
         if (priority === 'MEDIUM') return '#579bfc'; // blue
@@ -12,16 +15,25 @@ function Priority({ info, onTaskUpdate }) {
         return 'coral'; // default color for other priorities
     }
 
-    // Inline style for the priority background color
     const style = { backgroundColor: color(currentPriority), width: '100%', height: '100%' };
 
+    // Function to handle priority change and update task
+    async function handlePriorityClick(newPriority) {
+        setIsUpdating(true);  // Set the updating flag
+        const updatedTask = { priority: newPriority };
 
-    const handlePriorityClick = (priority) => {
-        setCurrentPriority(priority);
-        setModal(false);
-    };
+        try {
+            await updateTask(props.boardId, props.groupId, props.taskId, updatedTask);
+            setCurrentPriority(newPriority);  // Update local state for UI
+            setModal(false);  // Close the modal
+        } catch (error) {
+            console.error('Error updating task:', error);
+        } finally {
+            setIsUpdating(false);  // Reset the updating flag
+        }
+    }
 
-
+    // Function to handle click outside of the modal
     const handleOutsideClick = () => {
         setModal(false);
     };
@@ -56,7 +68,6 @@ function Priority({ info, onTaskUpdate }) {
                             >
                                 LOW
                             </div>
-
                         </div>
                         <button className="btn" onClick={() => setModal(false)}>Close</button>
                     </div>
